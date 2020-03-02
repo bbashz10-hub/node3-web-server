@@ -5,6 +5,7 @@ const geocode = require("./utils/geocode")
 const forecast = require("./utils/forecast")
 
 const app = express()
+const port = process.env.PORT || 3000       //config port for heroku
 const publicDirectory = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')        //when changing the views name
 const partialsPath = path.join(__dirname, '../templates/partials')
@@ -118,6 +119,6 @@ app.get('*', (req, res) => {
     res.send('my 404 page')
 })
 
-app.listen(3000, () => {
-    console.log('Server is up for port 3000')
+app.listen(port, () => {
+    console.log('Server is up for port ' + port)
 })
